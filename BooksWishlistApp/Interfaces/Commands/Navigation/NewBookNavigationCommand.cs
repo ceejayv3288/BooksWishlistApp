@@ -8,10 +8,10 @@ namespace BooksWishlistApp.Interfaces.Commands.Navigation
 {
     public class NewBookNavigationCommand : ICommand
     {
-        BooksPageViewModel BooksPageViewModel;
+        BooksPageViewModel _booksPageViewModel;
         public NewBookNavigationCommand(BooksPageViewModel booksPageViewModel)
         {
-            BooksPageViewModel = booksPageViewModel;
+            _booksPageViewModel = booksPageViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -23,7 +23,7 @@ namespace BooksWishlistApp.Interfaces.Commands.Navigation
 
         public void Execute(object parameter)
         {
-            BooksPageViewModel.NewBookAction();
+            _booksPageViewModel.NewBookAction();
         }
     }
 }

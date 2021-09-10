@@ -1,4 +1,8 @@
-﻿using BooksWishlistApp.Views;
+﻿using BooksWishlistApp.Services;
+using BooksWishlistApp.Services.Managers;
+using BooksWishlistApp.Views;
+using Newtonsoft.Json;
+using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,9 +11,19 @@ namespace BooksWishlistApp
 {
     public partial class App : Application
     {
-        public App()
+        public static SQLiteConnection Connection { get; private set; }
+        public static GoogleBooksAPIManager GoogleBooksAPIManager { get; private set; }
+        public static JsonSerializer JsonSerializer { get; private set; }
+        public static string DatabasePath { get; set; }
+
+        public App(string databasePath)
         {
             InitializeComponent();
+
+            DatabasePath = databasePath;
+            Connection = new SQLiteConnection(DatabasePath);
+            GoogleBooksAPIManager = new GoogleBooksAPIManager(new GoogleBooksAPIServices());
+            JsonSerializer = new JsonSerializer();
 
             MainPage = new NavigationPage(new BooksPage());
         }
