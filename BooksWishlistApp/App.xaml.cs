@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BooksWishlistApp.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace BooksWishlistApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new BooksPage());
         }
 
         protected override void OnStart()

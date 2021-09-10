@@ -6,5 +6,9 @@ namespace BooksWishlistApp.ViewModels
 {
     public class BookDetailsPageViewModel
     {
+        public BookDetailsPageViewModel()
+        {
+
+        }
     }
 }
