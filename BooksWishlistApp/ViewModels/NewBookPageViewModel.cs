@@ -9,11 +9,13 @@ namespace BooksWishlistApp.ViewModels
 {
     public class NewBookPageViewModel
     {
+        public SaveBookCommand SaveBookCommand { get; set; }
         public SearchBooksCommand SearchBooksCommand { get; set; }
         public ObservableCollection<Book> SearchResults { get; set; }
 
         public NewBookPageViewModel()
         {
+            SaveBookCommand = new SaveBookCommand(this);
             SearchBooksCommand = new SearchBooksCommand(this);
             SearchResults = new ObservableCollection<Book>();
         }
@@ -50,6 +52,24 @@ namespace BooksWishlistApp.ViewModels
             catch (Exception ex)
             {
 
+            }
+        }
+
+        public void SaveBooks(Book book)
+        {
+            var recordCount = App.Connection.Table<Book>().Where(bookStored => bookStored.authors == book.authors && bookStored.thumbnail == book.thumbnail && bookStored.title == book.title).Count();
+            if (recordCount == 0)
+            {
+                App.Connection.CreateTable<Book>();
+                int bookInserted = App.Connection.Insert(book);
+                if (bookInserted >= 1)
+                    App.Current.MainPage.DisplayAlert("Success!", "Book saved", "Ok");
+                else
+                    App.Current.MainPage.DisplayAlert("Failure", "An error occured while saving the book", "Ok");
+            }
+            else
+            {
+                App.Current.MainPage.DisplayAlert("Failed", "Book already saved!", "Ok");
             }
         }
     }

@@ -7,7 +7,9 @@
         <vm:NewBookPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save"/>
+        <ToolbarItem Text="Save"
+                     Command="{Binding SaveBookCommand}"
+                     CommandParameter="{Binding SelectedItem, Source={x:Reference bookListView}}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -15,7 +17,8 @@
                        Placeholder="Search ISBN, Author or Title"
                        SearchCommand="{Binding SearchBooksCommand}"
                        SearchCommandParameter="{Binding Text, Source={x:Reference bookSearchBar}}"/>
-            <ListView ItemsSource="{Binding SearchResults}">
+            <ListView x:Name="bookListView"
+                      ItemsSource="{Binding SearchResults}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell ImageSource="{Binding thumbnail}"
