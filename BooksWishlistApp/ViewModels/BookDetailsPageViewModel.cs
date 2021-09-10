@@ -54,6 +54,8 @@ namespace BooksWishlistApp.ViewModels
             Thumbnail = selectedBook.thumbnail;
             Author = selectedBook.authors;
             Title = selectedBook.title;
+
+            this.selectedBook = selectedBook;
         }
 
         public  void DeleteBook()
