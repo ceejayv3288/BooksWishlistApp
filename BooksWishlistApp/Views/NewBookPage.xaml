@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:BooksWishlistApp.ViewModels"
              x:Class="BooksWishlistApp.Views.NewBookPage">
-    <ContentPage.BindingContext>
-        <vm:NewBookPageViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
                      Command="{Binding SaveBookCommand}"

@@ -14,12 +14,14 @@ namespace BooksWishlistApp.ViewModels
     {
         public NewBookNavigationCommand NewBookNavigationCommand { get; set; }
         public BooksPageAppearingCommand PageAppearingCommand { get; set; }
+        public BookSelectedCommand BookSelectedCommand { get; set; }
         public ObservableCollection<Book> SavedBooks { get; set; }
 
         public BooksPageViewModel()
         {
             NewBookNavigationCommand = new NewBookNavigationCommand(this);
             PageAppearingCommand = new BooksPageAppearingCommand(this);
+            BookSelectedCommand = new BookSelectedCommand(this);
             SavedBooks = new ObservableCollection<Book>();
             ReadSavedBook();
         }
@@ -44,6 +46,11 @@ namespace BooksWishlistApp.ViewModels
         public void PageAppearingAction()
         {
             ReadSavedBook();
+        }
+
+        public async void BookSelectedAction(Book selectedBook)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new BookDetailsPage(selectedBook));
         }
     }
 }

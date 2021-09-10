@@ -1,12 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:BooksWishlistApp.ViewModels"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BooksWishlistApp.Views.BooksPage">
-    <ContentPage.BindingContext>
-        <vm:BooksPageViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Book"
                      Command="{Binding NewBookNavigationCommand}"/>
@@ -19,6 +15,16 @@
     <ContentPage.Content>
         <ListView x:Name="bookListView" 
                   ItemsSource="{Binding SavedBooks}">
+            <ListView.Behaviors>
+                <!--<xct:EventToCommandBehavior
+                    EventName="ItemSelected"
+                    Command="{Binding ItemSelectedCommand}"
+                    CommandParameter="{Binding Source={x:Reference bookListView}}"/>-->
+                <xct:EventToCommandBehavior
+                    EventName="ItemSelected"
+                    Command="{Binding BookSelectedCommand}"
+                    CommandParameter="{x:Reference bookListView}"/>
+            </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell ImageSource="{Binding thumbnail}"
