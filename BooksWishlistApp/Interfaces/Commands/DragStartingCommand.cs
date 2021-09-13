@@ -3,15 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
 using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Interfaces.Commands
 {
-    public class BookSelectedCommand : ICommand
+    public class DragStartingCommand : ICommand
     {
         BooksPageViewModel _booksPageViewModel;
-        public BookSelectedCommand(BooksPageViewModel booksPageViewModel)
+        public DragStartingCommand(BooksPageViewModel booksPageViewModel)
         {
             _booksPageViewModel = booksPageViewModel;
         }
@@ -27,11 +26,11 @@ namespace BooksWishlistApp.Interfaces.Commands
         {
             if (parameter != null)
             {
-                if (parameter is ListView bookList)
-                    _booksPageViewModel.BookSelectedAction(bookList.SelectedItem as Book);
-                else if (parameter is Book book)
-                    _booksPageViewModel.BookSelectedAction(book);
-            }        
+                if (parameter is Book book)
+                {
+                    _booksPageViewModel._dragBook = book;
+                }
+            }
         }
     }
 }
