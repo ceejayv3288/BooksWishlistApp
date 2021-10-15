@@ -12,11 +12,11 @@ using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services
 {
-    public class GoogleBooksAPIServices : IBooksAPIServices
+    public class GoogleBooksAPIService : IBooksAPIServices
     {
         readonly HttpClient client = new HttpClient();
 
-        public GoogleBooksAPIServices()
+        public GoogleBooksAPIService()
         {
             //client.BaseAddress = new Uri("uri here");
             //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -49,7 +49,7 @@ namespace BooksWishlistApp.Services
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

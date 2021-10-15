@@ -22,7 +22,7 @@ namespace BooksWishlistApp
 
             DatabasePath = databasePath;
             Connection = new SQLiteConnection(DatabasePath);
-            BooksAPIManager = new BooksAPIManager(new GoogleBooksAPIServices());
+            BooksAPIManager = new BooksAPIManager(new GoogleBooksAPIService());
             JsonSerializer = new JsonSerializer();
 
             MainPage = new NavigationPage(new BooksPage());

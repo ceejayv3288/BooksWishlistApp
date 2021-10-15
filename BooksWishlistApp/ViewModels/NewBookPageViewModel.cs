@@ -51,7 +51,7 @@ namespace BooksWishlistApp.ViewModels
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
