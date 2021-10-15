@@ -10,7 +10,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class BookSelectedCommand : ICommand
     {
-        BooksPageViewModel _booksPageViewModel;
+        private readonly BooksPageViewModel _booksPageViewModel;
         public BookSelectedCommand(BooksPageViewModel booksPageViewModel)
         {
             _booksPageViewModel = booksPageViewModel;

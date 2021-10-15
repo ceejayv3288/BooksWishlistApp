@@ -8,7 +8,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class DeleteBookCommand : ICommand
     {
-        BookDetailsPageViewModel _bookDetailsPageViewModel;
+        private readonly BookDetailsPageViewModel _bookDetailsPageViewModel;
         public DeleteBookCommand(BookDetailsPageViewModel bookDetailsPageViewModel)
         {
             _bookDetailsPageViewModel = bookDetailsPageViewModel;

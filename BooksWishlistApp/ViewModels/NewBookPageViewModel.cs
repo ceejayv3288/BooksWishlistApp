@@ -24,15 +24,15 @@ namespace BooksWishlistApp.ViewModels
         {
             try
             {
-                var data = await App.GoogleBooksAPIManager.GetSearchListAsync(query);
+                var data = await App.BooksAPIManager.GetSearchListAsync(query);
 
                 SearchResults.Clear();
                 foreach (var book in data.items)
                 {
                     Book currentBook = new Book
                     {
-                        thumbnail = book.volumeInfo.imageLinks?.thumbnail != null ? book.volumeInfo.imageLinks?.thumbnail : string.Empty,
-                        title = book.volumeInfo?.title != null ? book.volumeInfo?.title : string.Empty
+                        thumbnail = (book.volumeInfo.imageLinks?.thumbnail) ?? string.Empty,
+                        title = (book.volumeInfo?.title) ?? string.Empty
                     };
 
                     string authors = string.Empty;

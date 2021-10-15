@@ -9,7 +9,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class SaveBookCommand : ICommand
     {
-        NewBookPageViewModel _newBookPageViewModel;
+        private readonly NewBookPageViewModel _newBookPageViewModel;
         public SaveBookCommand(NewBookPageViewModel newBookPageViewModel)
         {
             _newBookPageViewModel = newBookPageViewModel;

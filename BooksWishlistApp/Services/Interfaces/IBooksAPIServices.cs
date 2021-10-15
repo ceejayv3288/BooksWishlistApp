@@ -6,7 +6,7 @@ using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services.Interfaces
 {
-    public interface IGoogleBooksAPIServices
+    public interface IBooksAPIServices
     {
         Task<BooksAPI> GetSearchListAsync(string query);
     }

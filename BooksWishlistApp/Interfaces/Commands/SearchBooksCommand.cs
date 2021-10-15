@@ -8,7 +8,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class SearchBooksCommand : ICommand
     {
-        NewBookPageViewModel _newBookPageViewModel;
+        private readonly NewBookPageViewModel _newBookPageViewModel;
         public SearchBooksCommand(NewBookPageViewModel newBookPageViewModel)
         {
             _newBookPageViewModel = newBookPageViewModel;

@@ -10,8 +10,8 @@ namespace BooksWishlistApp.ViewModels
     {
         public DeleteBookCommand DeleteBookCommand { get; set; }
 
-        public Book selectedBook { get; set; }
-        public string title { get; set; }
+        public Book SelectedBook { get; set; }
+        private string title { get; set; }
         public string Title
         {
             get { return title; }
@@ -21,7 +21,7 @@ namespace BooksWishlistApp.ViewModels
                 OnPropertyChanged("Title");
             }
         }
-        public string author { get; set; }
+        private string author { get; set; }
         public string Author
         {
             get { return author; }
@@ -31,7 +31,7 @@ namespace BooksWishlistApp.ViewModels
                 OnPropertyChanged("Author");
             }
         }
-        public string thumbnail { get; set; }
+        private string thumbnail { get; set; }
         public string Thumbnail
         {
             get { return thumbnail; }
@@ -55,13 +55,13 @@ namespace BooksWishlistApp.ViewModels
             Author = selectedBook.authors;
             Title = selectedBook.title;
 
-            this.selectedBook = selectedBook;
+            this.SelectedBook = selectedBook;
         }
 
         public  void DeleteBook()
         {
             App.Connection.CreateTable<Book>();
-            int bookDeleted = App.Connection.Delete(selectedBook);
+            int bookDeleted = App.Connection.Delete(SelectedBook);
             if (bookDeleted >= 1)
             {
                 App.Current.MainPage.DisplayAlert("Success!", "The book is successfully deleted.", "Ok");

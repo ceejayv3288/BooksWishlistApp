@@ -12,7 +12,7 @@ using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services
 {
-    public class GoogleBooksAPIServices : IGoogleBooksAPIServices
+    public class GoogleBooksAPIServices : IBooksAPIServices
     {
         readonly HttpClient client = new HttpClient();
 

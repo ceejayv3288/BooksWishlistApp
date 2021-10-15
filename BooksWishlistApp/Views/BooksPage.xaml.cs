@@ -13,7 +13,7 @@ namespace BooksWishlistApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BooksPage : ContentPage
     {
-        BooksPageViewModel _booksPageViewModel;
+        private readonly BooksPageViewModel _booksPageViewModel;
         public BooksPage()
         {
             _booksPageViewModel = new BooksPageViewModel();

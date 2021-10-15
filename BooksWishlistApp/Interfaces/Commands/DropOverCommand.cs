@@ -9,7 +9,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class DropOverCommand : ICommand
     {
-        BooksPageViewModel _booksPageViewModel;
+        private readonly BooksPageViewModel _booksPageViewModel;
         public DropOverCommand(BooksPageViewModel booksPageViewModel)
         {
             _booksPageViewModel = booksPageViewModel;

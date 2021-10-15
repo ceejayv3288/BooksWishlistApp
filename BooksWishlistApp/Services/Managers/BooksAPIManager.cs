@@ -7,11 +7,11 @@ using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services.Managers
 {
-    public class GoogleBooksAPIManager
+    public class BooksAPIManager
     {
-        IGoogleBooksAPIServices GoogleBooksAPIServices;
+        private readonly IBooksAPIServices GoogleBooksAPIServices;
 
-        public GoogleBooksAPIManager(IGoogleBooksAPIServices googleBooksAPIServices)
+        public BooksAPIManager(IBooksAPIServices googleBooksAPIServices)
         {
             GoogleBooksAPIServices = googleBooksAPIServices;
         }

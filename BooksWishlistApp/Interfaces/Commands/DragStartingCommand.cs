@@ -9,7 +9,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 {
     public class DragStartingCommand : ICommand
     {
-        BooksPageViewModel _booksPageViewModel;
+        private readonly BooksPageViewModel _booksPageViewModel;
         public DragStartingCommand(BooksPageViewModel booksPageViewModel)
         {
             _booksPageViewModel = booksPageViewModel;
