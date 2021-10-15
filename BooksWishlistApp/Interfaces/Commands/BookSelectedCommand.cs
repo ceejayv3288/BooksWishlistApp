@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using static BooksWishlistApp.Models.GoogleBooksAPI;
+using static BooksWishlistApp.Models.GoogleBooksApi;
 
 namespace BooksWishlistApp.Interfaces.Commands
 {

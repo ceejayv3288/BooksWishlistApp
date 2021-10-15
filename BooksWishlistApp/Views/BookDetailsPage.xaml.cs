@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static BooksWishlistApp.Models.GoogleBooksAPI;
+using static BooksWishlistApp.Models.GoogleBooksApi;
 
 namespace BooksWishlistApp.Views
 {
