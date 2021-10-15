@@ -12,7 +12,7 @@ namespace BooksWishlistApp
     public partial class App : Application
     {
         public static SQLiteConnection Connection { get; private set; }
-        public static BooksApiManager BooksApiManager { get; private set; }
+        public static GoogleBooksAPIManager GoogleBooksAPIManager { get; private set; }
         public static JsonSerializer JsonSerializer { get; private set; }
         public static string DatabasePath { get; set; }
 
@@ -22,7 +22,7 @@ namespace BooksWishlistApp
 
             DatabasePath = databasePath;
             Connection = new SQLiteConnection(DatabasePath);
-            BooksApiManager = new BooksApiManager(new GoogleBooksApiServices());
+            GoogleBooksAPIManager = new GoogleBooksAPIManager(new GoogleBooksAPIServices());
             JsonSerializer = new JsonSerializer();
 
             MainPage = new NavigationPage(new BooksPage());

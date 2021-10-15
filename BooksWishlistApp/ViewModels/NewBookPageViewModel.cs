@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using static BooksWishlistApp.Models.GoogleBooksApi;
+using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.ViewModels
 {
@@ -24,7 +24,7 @@ namespace BooksWishlistApp.ViewModels
         {
             try
             {
-                var data = await App.BooksApiManager.GetSearchListAsync(query);
+                var data = await App.GoogleBooksAPIManager.GetSearchListAsync(query);
 
                 SearchResults.Clear();
                 foreach (var book in data.items)

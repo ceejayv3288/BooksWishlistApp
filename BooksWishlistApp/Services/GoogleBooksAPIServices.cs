@@ -8,28 +8,28 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using static BooksWishlistApp.Models.GoogleBooksApi;
+using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services
 {
-    public class GoogleBooksApiServices : IBooksApiServices
+    public class GoogleBooksAPIServices : IGoogleBooksAPIServices
     {
         readonly HttpClient client = new HttpClient();
 
-        public GoogleBooksApiServices()
+        public GoogleBooksAPIServices()
         {
             //client.BaseAddress = new Uri("uri here");
             //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<BooksApi> GetSearchListAsync(string query)
+        public async Task<BooksAPI> GetSearchListAsync(string query)
         {
             try
             {
                 //var result = await Client.GetStringAsync($"https://www.googleapis.com/books/v1/volumes?q={query}&key={Constants.GOOGLE_BOOKS_API_KEY}");
-                //return JsonConvert.DeserializeObject<BooksApi>(books);
+                //return JsonConvert.DeserializeObject<BooksAPI>(books);
 
-                BooksApi books = new BooksApi();
+                BooksAPI books = new BooksAPI();
                 HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q={query}&key={Constants.GOOGLE_BOOKS_API_KEY}");
                 if (response.IsSuccessStatusCode)
                 {
@@ -39,7 +39,7 @@ namespace BooksWishlistApp.Services
                         {
                             using (var json = new JsonTextReader(reader))
                             {
-                                books = App.JsonSerializer.Deserialize<BooksApi>(json);
+                                books = App.JsonSerializer.Deserialize<BooksAPI>(json);
                             }
                         }
                     }

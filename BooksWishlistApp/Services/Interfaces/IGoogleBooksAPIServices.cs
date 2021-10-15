@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using static BooksWishlistApp.Models.GoogleBooksApi;
+using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Services.Interfaces
 {
-    public interface IBooksApiServices
+    public interface IGoogleBooksAPIServices
     {
-        Task<BooksApi> GetSearchListAsync(string query);
+        Task<BooksAPI> GetSearchListAsync(string query);
     }
 }

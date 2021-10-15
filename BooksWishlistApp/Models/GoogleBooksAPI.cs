@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BooksWishlistApp.Models
 {
-    public class GoogleBooksApi
+    public class GoogleBooksAPI
     {
         public class IndustryIdentifier
         {
@@ -131,7 +131,7 @@ namespace BooksWishlistApp.Models
             public SearchInfo searchInfo { get; set; }
         }
 
-        public class BooksApi
+        public class BooksAPI
         {
             public string kind { get; set; }
             public int totalItems { get; set; }
