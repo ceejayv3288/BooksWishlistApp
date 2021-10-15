@@ -9,9 +9,9 @@ namespace BooksWishlistApp.Services.Managers
 {
     public class BooksAPIManager
     {
-        private readonly IBooksAPIServices GoogleBooksAPIServices;
+        private readonly IBooksAPIService GoogleBooksAPIServices;
 
-        public BooksAPIManager(IBooksAPIServices googleBooksAPIServices)
+        public BooksAPIManager(IBooksAPIService googleBooksAPIServices)
         {
             GoogleBooksAPIServices = googleBooksAPIServices;
         }
