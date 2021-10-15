@@ -137,22 +137,5 @@ namespace BooksWishlistApp.Models
             public int totalItems { get; set; }
             public List<Item> items { get; set; }
         }
-
-        public class Books
-        {
-            public string thumbnail { get; set; }
-            public string title { get; set; }
-            public string authors { get; set; }
-        }
-
-        public class Book
-        {
-            [JsonIgnore]
-            [PrimaryKey, AutoIncrement]
-            public int id { get; set; }
-            public string thumbnail { get; set; }
-            public string title { get; set; }
-            public string authors { get; set; }
-        }
     }
 }

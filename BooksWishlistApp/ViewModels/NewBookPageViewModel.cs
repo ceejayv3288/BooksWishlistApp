@@ -1,9 +1,7 @@
 ﻿using BooksWishlistApp.Interfaces.Commands;
+using BooksWishlistApp.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.ViewModels
 {

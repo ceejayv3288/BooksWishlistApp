@@ -1,10 +1,8 @@
-﻿using BooksWishlistApp.ViewModels;
+﻿using BooksWishlistApp.Models;
+using BooksWishlistApp.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using static BooksWishlistApp.Models.GoogleBooksAPI;
 
 namespace BooksWishlistApp.Interfaces.Commands
 {
