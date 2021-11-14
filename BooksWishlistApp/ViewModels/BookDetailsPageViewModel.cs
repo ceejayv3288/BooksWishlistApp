@@ -1,11 +1,15 @@
 ﻿using BooksWishlistApp.Interfaces.Commands;
 using BooksWishlistApp.Models;
+using BooksWishlistApp.Services.Interfaces;
+using Xamarin.Forms;
 
 namespace BooksWishlistApp.ViewModels
 {
     public class BookDetailsPageViewModel : BaseViewModel
     {
         public DeleteBookCommand DeleteBookCommand { get; set; }
+
+        IBookService bookService;
 
         public Book SelectedBook { get; set; }
         private string title { get; set; }
@@ -42,11 +46,15 @@ namespace BooksWishlistApp.ViewModels
         public BookDetailsPageViewModel()
         {
             DeleteBookCommand = new DeleteBookCommand(this);
+
+            bookService = DependencyService.Get<IBookService>();
         }
 
         public BookDetailsPageViewModel(Book selectedBook)
         {
             DeleteBookCommand = new DeleteBookCommand(this);
+
+            bookService = DependencyService.Get<IBookService>();
 
             Thumbnail = selectedBook.thumbnail;
             Author = selectedBook.authors;
@@ -55,17 +63,16 @@ namespace BooksWishlistApp.ViewModels
             this.SelectedBook = selectedBook;
         }
 
-        public  void DeleteBook()
+        public async void DeleteBook()
         {
-            App.Connection.CreateTable<Book>();
-            int bookDeleted = App.Connection.Delete(SelectedBook);
+            int bookDeleted = await bookService.DeleteBook(SelectedBook.id);
             if (bookDeleted >= 1)
             {
-                App.Current.MainPage.DisplayAlert("Success!", "The book is successfully deleted.", "Ok");
-                App.Current.MainPage.Navigation.PopAsync();
+                await App.Current.MainPage.DisplayAlert("Success!", "The book is successfully deleted.", "Ok");
+                await App.Current.MainPage.Navigation.PopAsync();
             }
             else
-                App.Current.MainPage.DisplayAlert("Failed!", "An error has occured.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Failed!", "An error has occured.", "Ok");
         }
     }
 }

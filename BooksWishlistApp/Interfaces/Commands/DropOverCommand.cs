@@ -22,16 +22,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 
         public void Execute(object parameter)
         {
-            if (_booksPageViewModel.SavedBooks.Contains(_booksPageViewModel._dragBook))
-            {
-                _booksPageViewModel.SavedBooks.Remove(_booksPageViewModel._dragBook);
-                App.Connection.CreateTable<Book>();
-                int bookDeleted = App.Connection.Delete(_booksPageViewModel._dragBook);
-                if (bookDeleted == 0)
-                {
-                    App.Current.MainPage.DisplayAlert("Failed!", "An error has occured.", "Ok");
-                }
-            }
+            _booksPageViewModel.ExecuteDragOverDeleteCommand();
         }
     }
 }

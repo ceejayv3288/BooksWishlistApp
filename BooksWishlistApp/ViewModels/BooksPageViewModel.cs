@@ -1,6 +1,7 @@
 ﻿using BooksWishlistApp.Interfaces.Commands;
 using BooksWishlistApp.Interfaces.Commands.Navigation;
 using BooksWishlistApp.Models;
+using BooksWishlistApp.Services.Interfaces;
 using BooksWishlistApp.Views;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -9,6 +10,8 @@ namespace BooksWishlistApp.ViewModels
 {
     public class BooksPageViewModel
     {
+        IBookService bookService;
+
         public NewBookNavigationCommand NewBookNavigationCommand { get; set; }
         public BooksPageAppearingCommand PageAppearingCommand { get; set; }
         public BookSelectedCommand BookSelectedCommand { get; set; }
@@ -24,13 +27,15 @@ namespace BooksWishlistApp.ViewModels
             DragStartingCommand = new DragStartingCommand(this);
             DropOverCommand = new DropOverCommand(this);
             SavedBooks = new ObservableCollection<Book>();
+
+            bookService = DependencyService.Get<IBookService>();
+
             ReadSavedBook();
         }
 
-        private void ReadSavedBook()
+        private async void ReadSavedBook()
         {
-            App.Connection.CreateTable<Book>();
-            var books = App.Connection.Table<Book>().ToList();
+            var books = await bookService.GetAllBooks();
 
             SavedBooks.Clear();
             foreach (var book in books)
@@ -73,5 +78,18 @@ namespace BooksWishlistApp.ViewModels
         //    } 
         //});
         public Book _dragBook;
+
+        public async void ExecuteDragOverDeleteCommand()
+        {
+            if (SavedBooks.Contains(_dragBook))
+            {
+                SavedBooks.Remove(_dragBook);
+                int bookDeleted = await bookService.DeleteBook(_dragBook.id);
+                if (bookDeleted == 0)
+                {
+                    await App.Current.MainPage.DisplayAlert("Failed!", "An error has occured.", "Ok");
+                }
+            }
+        }
     }
 }
