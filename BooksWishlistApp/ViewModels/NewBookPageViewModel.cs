@@ -14,6 +14,7 @@ namespace BooksWishlistApp.ViewModels
         public ObservableCollection<Book> SearchResults { get; set; }
 
         IBookService bookService;
+        IGoogleBooksAPIService googleBooksAPIService;
 
         public NewBookPageViewModel()
         {
@@ -22,13 +23,14 @@ namespace BooksWishlistApp.ViewModels
             SearchResults = new ObservableCollection<Book>();
 
             bookService = DependencyService.Get<IBookService>();
+            googleBooksAPIService = DependencyService.Get<IGoogleBooksAPIService>();
         }
 
         public async void GetSearchResults(string query)
         {
             try
             {
-                var data = await App.BooksAPIManager.GetSearchListAsync(query);
+                var data = await googleBooksAPIService.GetSearchListAsync(query);
 
                 SearchResults.Clear();
                 foreach (var book in data.items)

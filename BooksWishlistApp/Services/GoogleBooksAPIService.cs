@@ -1,15 +1,18 @@
 ﻿using BooksWishlistApp.Helpers;
+using BooksWishlistApp.Services;
 using BooksWishlistApp.Services.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using static BooksWishlistApp.Models.GoogleBooksAPI;
 
+[assembly: Dependency(typeof(GoogleBooksAPIService))]
 namespace BooksWishlistApp.Services
 {
-    public class GoogleBooksAPIService : IBooksAPIService
+    public class GoogleBooksAPIService : IGoogleBooksAPIService
     {
         readonly HttpClient client = new HttpClient();
 
