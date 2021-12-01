@@ -20,7 +20,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 
         public void Execute(object parameter)
         {
-            _bookDetailsPageViewModel.DeleteBook();
+            _bookDetailsPageViewModel.ExecuteDeleteBookCommand();
         }
     }
 }

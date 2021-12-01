@@ -26,9 +26,9 @@ namespace BooksWishlistApp.Interfaces.Commands
             if (parameter != null)
             {
                 if (parameter is ListView bookList)
-                    _booksPageViewModel.BookSelectedAction(bookList.SelectedItem as Book);
+                    _booksPageViewModel.ExecuteBookSelectedCommand(bookList.SelectedItem as Book);
                 else if (parameter is Book book)
-                    _booksPageViewModel.BookSelectedAction(book);
+                    _booksPageViewModel.ExecuteBookSelectedCommand(book);
             }        
         }
     }

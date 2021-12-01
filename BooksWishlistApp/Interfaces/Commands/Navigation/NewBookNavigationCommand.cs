@@ -21,7 +21,7 @@ namespace BooksWishlistApp.Interfaces.Commands.Navigation
 
         public void Execute(object parameter)
         {
-            _booksPageViewModel.NewBookAction();
+            _booksPageViewModel.ExecuteNewBookCommand();
         }
     }
 }

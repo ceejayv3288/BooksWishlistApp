@@ -63,7 +63,7 @@ namespace BooksWishlistApp.ViewModels
             this.SelectedBook = selectedBook;
         }
 
-        public async void DeleteBook()
+        public async void ExecuteDeleteBookCommand()
         {
             int bookDeleted = await bookService.DeleteBook(SelectedBook.id);
             if (bookDeleted >= 1)

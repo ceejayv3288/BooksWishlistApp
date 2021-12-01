@@ -26,7 +26,7 @@ namespace BooksWishlistApp.ViewModels
             googleBooksAPIService = DependencyService.Get<IGoogleBooksAPIService>();
         }
 
-        public async void GetSearchResults(string query)
+        public async void ExecuteSearchBooksCommand(string query)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace BooksWishlistApp.ViewModels
             }
         }
 
-        public async void SaveBooks(Book book)
+        public async void ExecuteSaveBooksCommand(Book book)
         {
             var record = await bookService.GetAllBooksUsingBook(book);
             if (record.Count == 0)

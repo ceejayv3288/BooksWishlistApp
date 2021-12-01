@@ -26,7 +26,7 @@ namespace BooksWishlistApp.Interfaces.Commands
             {
                 if (parameter is Book book)
                 {
-                    _newBookPageViewModel.SaveBooks(book);
+                    _newBookPageViewModel.ExecuteSaveBooksCommand(book);
                 }
             }
         }

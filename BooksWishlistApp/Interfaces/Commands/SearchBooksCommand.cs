@@ -24,7 +24,7 @@ namespace BooksWishlistApp.Interfaces.Commands
             if(parameter != null)
             {
                 if(parameter is String query)
-                    _newBookPageViewModel.GetSearchResults(query);
+                    _newBookPageViewModel.ExecuteSearchBooksCommand(query);
             }
         }
     }

@@ -44,7 +44,7 @@ namespace BooksWishlistApp.ViewModels
             }
         }
 
-        public void NewBookAction()
+        public void ExecuteNewBookCommand()
         {
             Application.Current.MainPage.Navigation.PushAsync(new NewBookPage());
         }
@@ -54,7 +54,7 @@ namespace BooksWishlistApp.ViewModels
             ReadSavedBook();
         }
 
-        public async void BookSelectedAction(Book selectedBook)
+        public async void ExecuteBookSelectedCommand(Book selectedBook)
         {
             await Application.Current.MainPage.Navigation.PushAsync(new BookDetailsPage(selectedBook));
         }
