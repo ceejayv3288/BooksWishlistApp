@@ -21,7 +21,7 @@ namespace BooksWishlistApp.Interfaces.Commands
 
         public void Execute(object parameter)
         {
-            _booksPageViewModel.PageAppearingAction();
+            _booksPageViewModel.ExecutePageAppearingCommand();
         }
     }
 }

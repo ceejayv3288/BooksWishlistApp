@@ -49,7 +49,7 @@ namespace BooksWishlistApp.ViewModels
             Application.Current.MainPage.Navigation.PushAsync(new NewBookPage());
         }
 
-        public void PageAppearingAction()
+        public void ExecutePageAppearingCommand()
         {
             ReadSavedBook();
         }

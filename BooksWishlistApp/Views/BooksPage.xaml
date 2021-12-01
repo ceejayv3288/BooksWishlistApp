@@ -2,15 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:behaviors="clr-namespace:BooksWishlistApp.Behaviors"
              x:Class="BooksWishlistApp.Views.BooksPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Book"
                      Command="{Binding NewBookNavigationCommand}"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Behaviors>
+    <!--<ContentPage.Behaviors>
         <xct:EventToCommandBehavior
             EventName="Appearing"
             Command="{Binding PageAppearingCommand}"/>
+    </ContentPage.Behaviors>-->
+    <ContentPage.Behaviors>
+        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding PageAppearingCommand}"/>
     </ContentPage.Behaviors>
     <ContentPage.Content>
         <StackLayout>
