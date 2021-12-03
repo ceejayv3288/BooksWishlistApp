@@ -21,7 +21,7 @@ namespace BooksWishlistApp
         {
             InitializeComponent();
 
-            //Alternative dependency injection aside form declaring directly in the Service as Assembly
+            //Alternative dependency injection aside form declaring directly in the Service or in the AssemblyInfo.cs file as Assembly
             //DependencyService.Register<IBookService, BookService>();
             //DependencyService.Register<IBooksAPIService, GoogleBooksAPIService>();
 
@@ -30,7 +30,7 @@ namespace BooksWishlistApp
             //Connection = new SQLiteConnection(DatabasePath);
 
             //Singleton API services sample
-            BooksAPIManager = new BooksAPIManager(new GoogleBooksAPIService());
+            //BooksAPIManager = new BooksAPIManager(new GoogleBooksAPIService());
 
             JsonSerializer = new JsonSerializer();
 

@@ -9,7 +9,7 @@ using SQLite;
 using System.IO;
 using Xamarin.Essentials;
 
-[assembly: Dependency(typeof(BookService))]
+//[assembly: Dependency(typeof(BookService))]
 namespace BooksWishlistApp.Services
 {
     public class BookService : IBookService

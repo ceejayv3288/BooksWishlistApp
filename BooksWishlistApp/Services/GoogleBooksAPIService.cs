@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using static BooksWishlistApp.Models.GoogleBooksAPI;
 
-[assembly: Dependency(typeof(GoogleBooksAPIService))]
+//[assembly: Dependency(typeof(GoogleBooksAPIService))]
 namespace BooksWishlistApp.Services
 {
     public class GoogleBooksAPIService : IGoogleBooksAPIService
